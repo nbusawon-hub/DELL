@@ -12,6 +12,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.header import decode_header
 import getpass
+import os
 
 # Hotmail/Outlook server settings
 IMAP_SERVER = "outlook.office365.com"
@@ -142,8 +143,8 @@ def _decode_header(value):
 # -- Example usage --
 
 if __name__ == "__main__":
-    addr = input("Hotmail/Outlook email: ")
-    pw = getpass.getpass("Password (or App Password): ")
+    addr = os.environ.get("HOTMAIL_USER") or input("Hotmail/Outlook email: ")
+    pw = os.environ.get("HOTMAIL_PASS") or getpass.getpass("Password (or App Password): ")
 
     client = HotmailClient(addr, pw)
 
