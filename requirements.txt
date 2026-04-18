@@ -1,2 +1,2 @@
-# No external dependencies required.
-# Uses Python standard library: imaplib, smtplib, email
+azure-identity>=1.17
+msgraph-sdk>=1.0

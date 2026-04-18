@@ -1,0 +1,7 @@
+[azure]
+# Get this from your Entra app registration (see SETUP.md)
+clientId = YOUR_CLIENT_ID_HERE
+
+# Use "common" for personal Hotmail/Outlook.com accounts, or your tenant ID
+# for work/school accounts that only allow your own organization.
+tenantId = common
