@@ -1,0 +1,16 @@
+[project]
+name = "claude-tool-agent"
+version = "0.1.0"
+description = "A tool-use agent powered by the Claude API"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.52.0",
+    "python-dotenv>=1.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[tool.setuptools.packages.find]
+where = ["src"]
