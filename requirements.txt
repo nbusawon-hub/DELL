@@ -1,2 +1,3 @@
+anthropic>=0.88
 azure-identity>=1.17
 msgraph-sdk>=1.0

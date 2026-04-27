@@ -61,6 +61,21 @@ class HotmailGraphClient:
         ).messages.get(request_configuration=config)
         return result.value if result else []
 
+    async def list_inbox_with_body(self, top=10):
+        """Return the most recent messages from the inbox, including body content."""
+        query = MessagesRequestBuilder.MessagesRequestBuilderGetQueryParameters(
+            select=["from", "isRead", "receivedDateTime", "subject", "body"],
+            top=top,
+            orderby=["receivedDateTime DESC"],
+        )
+        config = MessagesRequestBuilder.MessagesRequestBuilderGetRequestConfiguration(
+            query_parameters=query,
+        )
+        result = await self.client.me.mail_folders.by_mail_folder_id(
+            "inbox"
+        ).messages.get(request_configuration=config)
+        return result.value if result else []
+
     async def send_mail(self, subject, body, to_address, html=False):
         """Send an email from the signed-in user."""
         message = Message(
